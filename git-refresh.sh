@@ -1,9 +1,6 @@
-# Make sure you’re on master
-git checkout master
-
-# Rename branch locally
-git branch -M main          # -M = move/rename even if main already exists locally
-
-# Push and set upstream so future pushes know where to go
-git push -u origin main
+#!/bin/bash
+git add .
+git commit -m "Quick sync" 2>/dev/null
+git pull origin master --rebase   # <- change main → master
+git push origin master            # <- change main → master
 
