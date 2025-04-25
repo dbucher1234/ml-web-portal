@@ -13,8 +13,8 @@ Paste or draw any molecule (ChemDraw → SMILES)
 
 ```bash
 # 1. clone the repo
-git clone https://github.com/dbucher1234/openfe-fep-aws.git
-cd openfe-fep-aws/ml-web-portal
+git clone https://github.com/dbucher1234/ml-web-portal.git
+cd ml-web-portal
 
 # 2. create the conda env
 conda env create -f environment.yml
