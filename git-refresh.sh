@@ -1,14 +1,9 @@
-#!/bin/bash
+# Make sure you’re on master
+git checkout master
 
-# Add everything
-git add .
+# Rename branch locally
+git branch -M main          # -M = move/rename even if main already exists locally
 
-# Commit with generic or default message
-git commit -m "Quick sync" 2>/dev/null
-
-# Pull remote changes first (with rebase to avoid merge commits)
-git pull origin main --rebase
-
-# Now push
-git push origin main
+# Push and set upstream so future pushes know where to go
+git push -u origin main
 
