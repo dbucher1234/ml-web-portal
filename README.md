@@ -1,6 +1,4 @@
-# ML model → Web portal
-
-Why 3-D PSA matters?
+# Why predict 3-D PSA?
 
 Polar surface area (PSA) is the part of a molecule that interacts with water. A 3-D PSA uses the molecule’s real 3-D shape, so it captures shielding, intramolecular H-bonds, and folding—factors that strongly influence permeability and oral exposure, especially for non-Lipinski “beyond-Rule-of-5” compounds. Classic 2-D TPSA is quick but ignores conformation, so it often under- or over-estimates permeability for flexible or macrocyclic molecules. A fast, accurate 3-D PSA prediction is therefore a handy early PK filter.
 
@@ -12,7 +10,7 @@ Give it a SMILES and you get a 3-D polar surface-area (PSA) estimate two ways:
 2) Fast ML fallback – computes cheap 2-D TPSA, then adds a machine-learned Δ-correction that was trained on thousands of QikProp results. No 3-D step, returns a PSA within ≈5 Å² of QikProp in milliseconds.
 Use the first when you need highest fidelity; use the second for instant, chemist-friendly screening.
 
-# Outline of the Tool
+# ML model → Web portal
 
 Paste or draw any molecule (ChemDraw → SMILES)  
 → server builds a 3-D conformer  
