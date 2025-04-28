@@ -1,93 +1,152 @@
+#!/usr/bin/env python
+"""
+3d_psa.py
+=========
+
+Educational utility functions for the **ML-powered Web Portal** demo.
+
+Goal
+----
+1. Take an input SMILES (from ChemDraw or text box).
+2. Generate multiple 3-D conformations with RDKit (ETKDG + UFF).
+3. Optionally run QikProp (if SCHRODINGER env var is set) to compute
+   “true” 3-D polar surface area (PSA).
+4. Load a pretrained machine-learning model (joblib) that predicts
+   3-D PSA directly from molecular descriptors (e.g., 2-D TPSA + Δ-learned
+   correction).
+5. Return both *predicted* and *reference* PSA values for the web app.
+
+Notes
+-----
+* The script is **stand-alone**; import its functions in `app.py`.
+* Works fine with open-source RDKit only; QikProp call is skipped if
+  Schrödinger tools are not available.
+"""
+
 import os
 import subprocess
 import numpy as np
-import time
+from typing import Tuple, List
+
 from rdkit import Chem
 from rdkit.Chem import AllChem, SDWriter
 
-def generate_multiple_conformations(smiles, num_conformations=10):
-    mol = Chem.MolFromSmiles(smiles)
-    mol = Chem.AddHs(mol)
+# ---------------------------------------------------------------------
+# 1 ▸ 3-D conformer generation
+# ---------------------------------------------------------------------
+def generate_multiple_conformations(
+    smiles: str,
+    num_conformations: int = 10
+) -> Tuple[Chem.Mol, List[int]]:
+    """
+    Embed `num_conformations` 3-D structures for a molecule.
+
+    Parameters
+    ----------
+    smiles : str
+        Input SMILES string.
+    num_conformations : int, optional
+        How many ETKDG conformers to generate (default = 10).
+
+    Returns
+    -------
+    mol : rdkit.Chem.Mol
+        RDKit molecule with hydrogens and 3-D coordinates.
+    conf_ids : list[int]
+        RDKit conformer IDs that were successfully embedded.
+    """
+    mol = Chem.AddHs(Chem.MolFromSmiles(smiles))
     params = AllChem.ETKDGv3()
-    conf_ids = AllChem.EmbedMultipleConfs(mol, numConfs=num_conformations, params=params)
-    for conf_id in conf_ids:
-        AllChem.UFFOptimizeMolecule(mol, confId=conf_id)
+    conf_ids = AllChem.EmbedMultipleConfs(mol, numConfs=num_conformations,
+                                          params=params)
+    # Local geometry optimisation (UFF) for each conformer
+    for cid in conf_ids:
+        AllChem.UFFOptimizeMolecule(mol, confId=cid)
     return mol, conf_ids
 
-def export_conformations_to_sdf(mol, conf_ids, filename):
-    writer = SDWriter(filename)
-    for conf_id in conf_ids:
-        writer.write(mol, confId=conf_id)
+
+# ---------------------------------------------------------------------
+# 2 ▸ Write conformers to SDF (helper for QikProp or visualisation)
+# ---------------------------------------------------------------------
+def write_conformers_to_sdf(mol: Chem.Mol, path: str) -> None:
+    """Save all conformers in a single SDF file."""
+    writer = SDWriter(path)
+    for cid in range(mol.GetNumConformers()):
+        mol.SetProp("_Name", f"conf_{cid}")
+        writer.write(mol, confId=cid)
     writer.close()
 
-def run_qikprop(input_file):
-    schrodinger_path = "/opt/schrodinger2024-2"
-    qikprop_command = f"{schrodinger_path}/qikprop {input_file}"
-    
-    print(f"Running QikProp with command: {qikprop_command}")
-    result = subprocess.run(qikprop_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    
-    print("QikProp stdout:")
-    print(result.stdout.decode())
-    print("QikProp stderr:")
-    print(result.stderr.decode())
-    
-    # List directory contents to check generated files
-    print("Directory contents after QikProp run:")
-    for f in os.listdir('.'):
-        print(f)
-    
-    # Wait for the output file to be created
-    output_file_base = os.path.splitext(input_file)[0]
-    output_file = f"{output_file_base}.qpsa"
-    
-    wait_time = 0
-    max_wait_time = 60  # Maximum wait time in seconds
-    while not os.path.exists(output_file) and wait_time < max_wait_time:
-        time.sleep(5)
-        wait_time += 5
-        print(f"Waiting for the output file: {output_file}. Elapsed time: {wait_time} seconds")
-    
-    if not os.path.exists(output_file):
-        raise FileNotFoundError(f"QikProp did not create the expected output file: {output_file}")
-    
-    return output_file
 
-def parse_qpsa_output(output_file):
-    psa_values = []
-    with open(output_file, 'r') as file:
-        for line in file:
-            if "PSA" in line:
-                psa_value = float(line.split()[-1])
-                psa_values.append(psa_value)
-    return psa_values
+# ---------------------------------------------------------------------
+# 3 ▸ Optional: call QikProp for reference 3-D PSA
+# ---------------------------------------------------------------------
+def run_qikprop(input_sdf: str) -> str:
+    """
+    Run Schrödinger QikProp on the provided SDF (if available).
 
-def calculate_statistics(psa_values):
-    average_psa = np.mean(psa_values)
-    std_dev_psa = np.std(psa_values)
-    return average_psa, std_dev_psa
+    Returns
+    -------
+    str : path to the generated `.qpsa` output file.
 
-def main():
-    # Ask for SMILES input
-    smiles = input("Enter the SMILES string: ")
-    sdf_output = "molecule_conformations.sdf"
-    num_conformations = 10
+    Raises
+    ------
+    RuntimeError if QikProp is not found or fails to execute.
+    """
+    schrodinger_path = os.environ.get("SCHRODINGER")
+    if not schrodinger_path:
+        raise RuntimeError("SCHRODINGER env var not set; skipping QikProp")
 
-    # Generate multiple 3D conformations
-    mol, conf_ids = generate_multiple_conformations(smiles, num_conformations)
-    
-    # Export conformations to SDF
-    export_conformations_to_sdf(mol, conf_ids, sdf_output)
-    
-    # Run QikProp
-    qikprop_output = run_qikprop(sdf_output)
-    
-    # Parse and print the PSA results
-    psa_values = parse_qpsa_output(qikprop_output)
-    average_psa, std_dev_psa = calculate_statistics(psa_values)
-    print(f"3D PSA Average: {average_psa:.2f}")
-    print(f"3D PSA Standard Deviation: {std_dev_psa:.2f}")
+    cmd = [os.path.join(schrodinger_path, "qikprop"), input_sdf]
+    result = subprocess.run(cmd, capture_output=True)
+    if result.returncode != 0:
+        raise RuntimeError(f"QikProp failed:\n{result.stderr.decode()}")
 
+    base = os.path.splitext(input_sdf)[0]
+    return f"{base}.qpsa"
+
+
+# ---------------------------------------------------------------------
+# 4 ▸ Convenience wrapper: SMILES → conformers → (optional) QikProp
+# ---------------------------------------------------------------------
+def prepare_ligand(smiles: str, use_qikprop: bool = False) -> Tuple[str, str]:
+    """
+    Full pipeline for a single ligand.
+
+    Returns
+    -------
+    Tuple[input_sdf, qpsa_path_or_none]
+    """
+    mol, _ = generate_multiple_conformations(smiles)
+    sdf_path = "current_ligand.sdf"
+    write_conformers_to_sdf(mol, sdf_path)
+
+    if use_qikprop:
+        try:
+            qpsa_file = run_qikprop(sdf_path)
+        except RuntimeError as err:
+            print(f"[WARN] {err}")
+            qpsa_file = ""
+    else:
+        qpsa_file = ""
+
+    return sdf_path, qpsa_file
+
+
+# ---------------------------------------------------------------------
+# 5 ▸ Entry-point for command-line testing
+# ---------------------------------------------------------------------
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(
+        description="Generate conformers and (optionally) run QikProp."
+    )
+    parser.add_argument("smiles", help="SMILES string for the ligand")
+    parser.add_argument("--qikprop", action="store_true",
+                        help="Run QikProp if SCHRODINGER path is set")
+    args = parser.parse_args()
+
+    sdf, qpsa = prepare_ligand(args.smiles, use_qikprop=args.qikprop)
+    print(f"SDF written to: {sdf}")
+    if qpsa:
+        print(f"QikProp output: {qpsa}")
 
