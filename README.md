@@ -1,36 +1,42 @@
-# Why predict 3D PSA?
+# 🧪 3-D PSA → Permeability → Web Portal
 
-Polar surface area (PSA) is the part of a molecule that interacts with water. A 3D PSA uses the molecule’s real 3D shape, so it captures shielding, intramolecular H-bonds, and folding—factors that strongly influence permeability and oral exposure, especially for non-Lipinski “beyond-Rule-of-5” compounds. Classic 2D TPSA is quick but ignores conformation, so it often under- or over-estimates permeability for flexible or macrocyclic molecules. A fast, accurate 3D PSA prediction is therefore a handy early PK filter.
-
-# ML model 
-
-Get a 3D polar surface-area (PSA) estimate two ways:
-
-1) Full 3D route (optional) – builds real 3D conformers and, if a Schrödinger install is detected, runs QikProp for the “true” PSA. Accurate but a few seconds per molecule.
-2) Fast ML fallback – computes cheap 2D TPSA, then adds a machine-learned Δ-correction that was trained on thousands of QikProp results. No 3D step, returns a PSA within ≈5 Å² of QikProp in milliseconds. Use the first when you need highest fidelity; use the second for instant, chemist-friendly screening.
-
-# Web portal
-
-→ Paste or draw any molecule (ChemDraw → SMILES)  
-→ ML model predicts its 3D polar surface area (PSA)  
-→ instant result + 2D depiction in the browser.
-
-[![Open in your browser](static/screenshot.png)](static/screenshot.png)
+A three-step, end-to-end tutorial that starts with a **physics-based 3-D polar surface area (PSA)** calculation, layers on a **machine-learning permeability model**, and ends with a **chemist-friendly Flask web app**.
 
 ---
 
-## 🚀 Quick start (local)
+## Why 3-D PSA?
+
+3-D PSA measures the polar part of a molecule’s **solvent-accessible surface**.  
+Unlike 2-D TPSA, it captures shielding, intramolecular H-bonds and folding—key drivers of permeability in **beyond-Lipinski** space (macrocycles, PROTACs, peptides). A fast 3-D estimate is therefore an excellent early PK filter.
+
+---
+
+## 🗺 Roadmap
+
+| Step | Script / Folder | What it teaches | Speed |
+|------|-----------------|-----------------|-------|
+| **1. Compute 3-D PSA** | `1_compute_psa.py` | Two routes:<br>• **QikProp** (Schrödinger) ⇒ reference 3-D PSA<br>• **Open-source** (RDKit ETKDG + UFF → SASA triangulation) ⇒ ~10 Å² RMS vs QikProp | QP: 2–5 s / mol<br>OS: ≤0.5 s / mol |
+| **2. Train ML model** | `2_train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3-D PSA (+ cLogP & MW) using a set of 328 cyclic peptides. | ~10 s total |
+| **3. Build web portal** | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES → server returns predicted 3-D PSA and MDCK Papp in milliseconds. | ~50 ms / mol |
+
+---
+
+## 🚀 Quick Start (local)
 
 ```bash
-# 1. clone the repo
+# clone
 git clone https://github.com/dbucher1234/ml-web-portal.git
 cd ml-web-portal
 
-# 2. create the conda env
+# create conda env
 conda env create -f environment.yml
 conda activate ml_web
 
-# 3. launch
-python app.py
-# → http://127.0.0.1:5000
+# 1️⃣  compute PSA (open-source route)
+python 1_compute_psa.py data/ligands.smi --method open
 
+# 2️⃣  train permeability model
+python 2_train_mdck_model.py
+
+# 3️⃣  launch web portal
+python app.py           # → http://127.0.0.1:5000
