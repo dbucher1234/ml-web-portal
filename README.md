@@ -2,7 +2,7 @@
 
 Why 3-D PSA matters?
 
-Polar surface area (PSA) is the part of a molecule that can hydrogen-bond with water. A 3-D PSA uses the molecule’s real 3-D shape, so it captures shielding, intramolecular H-bonds, and folding—factors that strongly influence permeability and oral exposure, especially for non-Lipinski “beyond-Rule-of-5” compounds. Classic 2-D TPSA is quick but ignores conformation, so it often under- or over-estimates permeability for flexible or macrocyclic molecules. A fast, accurate 3-D PSA prediction is therefore a handy early PK filter.
+Polar surface area (PSA) is the part of a molecule that interacts with water. A 3-D PSA uses the molecule’s real 3-D shape, so it captures shielding, intramolecular H-bonds, and folding—factors that strongly influence permeability and oral exposure, especially for non-Lipinski “beyond-Rule-of-5” compounds. Classic 2-D TPSA is quick but ignores conformation, so it often under- or over-estimates permeability for flexible or macrocyclic molecules. A fast, accurate 3-D PSA prediction is therefore a handy early PK filter.
 
 What does this demo do?
 Give it a SMILES and you get a 3-D polar surface-area (PSA) estimate two ways:
