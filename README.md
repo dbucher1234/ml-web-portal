@@ -18,7 +18,7 @@ In this example, we will use the following method:
 
 ## 🗺 Roadmap
 
-| Step | Script / Folder | What it teaches | 
+| Step | Script / Folder | What it does | 
 |------|-----------------|-----------------|
 | **1. SMILES → conformers** | `1_compute_psa.py` | **Open-source** (RDKit ETKDG)
 | **2. Compute 3D PSA** | `1_compute_psa.py` | Two routes:<br>• **QikProp** (Schrödinger) ⇒ reference 3D PSA<br>• **Open-source** (RDKit UFF → SASA triangulation) |
