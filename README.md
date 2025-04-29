@@ -7,7 +7,7 @@ A three-step tutorial that starts with a **physics-based 3D polar surface area (
 ## Why 3D PSA?
 
 3D PSA measures the polar part of a molecule’s **solvent-accessible surface**.  
-Unlike 2D TPSA, it captures shielding, intramolecular H-bonds and folding—key drivers of permeability in **beyond-Lipinski** space (macrocycles, PROTACs, peptides). A fast 3D estimate is therefore an excellent early PK filter.
+Unlike 2D TPSA, it captures shielding, intramolecular H-bonds and folding—key drivers of permeability in **beyond-Lipinski** space (macrocycles, PROTACs, peptides).
 
 ---
 
