@@ -1,6 +1,6 @@
 # 🧪 3D PSA → Permeability → Web Portal
 
-A three-step, end-to-end tutorial that starts with a **physics-based 3D polar surface area (PSA)** calculation, layers on a **machine-learning permeability model**, and ends with a **chemist-friendly Flask web app**.
+A three-step tutorial that starts with a **physics-based 3D polar surface area (PSA)** calculation, layers on a **machine-learning permeability model**, and ends with a **chemist-friendly Flask web app**.
 
 ---
 
