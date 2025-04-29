@@ -21,7 +21,7 @@ In this example, we will use the following method:
 | Step | Script / Folder | What it teaches | Speed |
 |------|-----------------|-----------------|-------|
 | **1. Compute 3D PSA** | `1_compute_psa.py` | Two routes:<br>• **QikProp** (Schrödinger) ⇒ reference 3D PSA<br>• **Open-source** (RDKit ETKDG + UFF → SASA triangulation) ⇒ ~10 Å² RMS vs QikProp | QP: 2–5 s / mol<br>OS: ≤0.5 s / mol |
-| **2. Train ML model** | `2_train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3D PSA, in our example using a set of 328 cyclic peptides. | ~10 s total |
+| **2. Train ML model** | `2_train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3D PSA, in our example using a set of 328 cyclic peptides (from http://cycpeptmpdb.com). | ~10 s total |
 | **3. Build web portal** | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES → server returns predicted 3D PSA and MDCK Papp in milliseconds. | ~50 ms / mol |
 
 ---
