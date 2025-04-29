@@ -22,7 +22,7 @@ In this example, we will use the following method:
 |------|-----------------|-----------------|
 | **1. SMILES → conformers** | `gen_conf.py` | Use Open-source RDKit ETKDG to generate 10 low energy conformations per ligand.
 | **2. Compute 3D PSA** | `compute_psa.py` | Two routes:<br>• QikProp (Schrödinger) ⇒ 3D PSA<br>• Open-source (RDKit UFF → SASA triangulation) |
-| **3. Train ML model** | `train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3D PSA, in our example using a set of 328 cyclic peptides (from http://cycpeptmpdb.com). |
+| **3. Train ML model** | `train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3D PSA, in our example using a set of 328 cyclic peptides from http://cycpeptmpdb.com |
 | **4. Build web portal** | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES → server returns predicted 3D PSA and MDCK Papp in milliseconds. |
 
 ---
