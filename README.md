@@ -9,6 +9,10 @@ A three-step tutorial that starts with a **physics-based 3D polar surface area (
 3D PSA measures the polar part of a molecule’s **solvent-accessible surface**.  
 Unlike 2D TPSA, it captures shielding, intramolecular H-bonds and folding—key drivers of permeability in **beyond-Lipinski** space (macrocycles, PROTACs, peptides).
 
+In similar work, Möbitz et al. generated 3D PSA by first producing conformers with OpenEye Omega and clustering them with RDKit. Each representative conformer then underwent a single-point COSMO QM calculation, after which the polar surface area was obtained by summing the solvent-accessible surface where the atomic charge density exceeded |q| > 0.002 e Å⁻². These 3D-PSA values were subsequently used to train a permeability model on 114 proprietary beyond-Rule-of-5 compounds.
+
+Lawrenz et al. employed a Schrödinger QM workflow in which single-point calculations were carried out both in gas phase and with an implicit-solvent model. The difference between the two energies provided the 3D solvation energy, E-sol, which served as the key descriptor for a trained permeability model.
+
 ---
 
 ## 🗺 Roadmap
