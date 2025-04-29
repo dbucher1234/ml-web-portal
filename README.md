@@ -46,9 +46,9 @@ python app.py           # → http://127.0.0.1:5000
 
 ## 📚 References
 
-- Lawrenz M., Svensson M., Kato M. **et al.**  
+- Lawrenz M., Svensson M., Kato M. et al.  
   “A Computational Physics-based Approach to Predict Unbound Brain-to-Plasma Partition Coefficient, Kp,uu.”  
-  *ChemRxiv* preprint, Version 1, 2023.
+  *J. Chem. Inf. Model.* **2023**, 63, 12, 3786–3798.
 
 - Möbitz H.  
   “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule-of-5 Space.”  
