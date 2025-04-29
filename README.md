@@ -40,3 +40,18 @@ python 2_train_mdck_model.py
 
 # 3️⃣  launch web portal
 python app.py           # → http://127.0.0.1:5000
+
+```
+---
+
+## 📚 References
+
+- Lawrenz M., Svensson M., Kato M. **et al.**  
+  “A Computational Physics-based Approach to Predict Unbound Brain-to-Plasma Partition Coefficient, Kp,uu.”  
+  *ChemRxiv* preprint, Version 1, 2023.
+
+- Möbitz H.  
+  “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule-of-5 Space.”  
+  *ChemMedChem* **2023**, 18, e202300395.
+
+
