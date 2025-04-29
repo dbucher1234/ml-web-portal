@@ -18,12 +18,12 @@ In this example, we will use the following method:
 
 ## 🗺 Roadmap
 
-| Step | Script / Folder | What it teaches | Speed |
-|------|-----------------|-----------------|-------|
+| Step | Script / Folder | What it teaches | 
+|------|-----------------|-----------------|
 | **1. SMILES → conformers** | `1_compute_psa.py` | **Open-source** (RDKit ETKDG)
 | **2. Compute 3D PSA** | `1_compute_psa.py` | Two routes:<br>• **QikProp** (Schrödinger) ⇒ reference 3D PSA<br>• **Open-source** (RDKit UFF → SASA triangulation) |
-| **3. Train ML model** | `2_train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3D PSA, in our example using a set of 328 cyclic peptides (from http://cycpeptmpdb.com). | ~10 s total |
-| **4. Build web portal** | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES → server returns predicted 3D PSA and MDCK Papp in milliseconds. | ~50 ms / mol |
+| **3. Train ML model** | `2_train_mdck_model.py` | Gradient-Boost regressor that predicts **MDCK permeability** from 3D PSA, in our example using a set of 328 cyclic peptides (from http://cycpeptmpdb.com). |
+| **4. Build web portal** | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES → server returns predicted 3D PSA and MDCK Papp in milliseconds. |
 
 ---
 
