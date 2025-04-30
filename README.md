@@ -36,7 +36,7 @@ We will use this as a test-case. The SMILES for a cyclic penta-alanine (five ala
 Alternatively, one can draw it in a sketcher like ChemDraw and right-click + copy as smile. 
 
 <p align="center">
-  <img src="/images/penta_ala.png" width="600">
+  <img src="/images/penta_ala.png" width="300">
 
 ---
 
