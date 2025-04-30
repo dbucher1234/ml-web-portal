@@ -42,7 +42,7 @@ Alternatively, one can draw it in a sketcher like ChemDraw and right-click + cop
 *penta_ala: best conformer = 13, energy = 25.52 kcal/mol*
 
 We can now calculate the 3D PSA for this conformer:
-<pre markdown="1"> python 3d_psa.py conf_out/penta_ala.pdf </pre>
+<pre markdown="1"> python compute_psa.py conf_out/penta_ala.sdf </pre>
 ---
 
 ## 🚀 Quick Start (local)
