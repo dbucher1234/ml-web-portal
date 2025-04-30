@@ -43,6 +43,8 @@ Alternatively, one can draw it in a sketcher like ChemDraw and right-click + cop
 
 We can now calculate the 3D PSA for this conformer:
 <pre markdown="1"> python compute_psa.py conf_out/penta_ala.sdf </pre>
+*3D PSA = 172.3 Å²   (qikprop)*
+
 ---
 
 ## 🚀 Quick Start (local)
