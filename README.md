@@ -24,7 +24,7 @@ Here, we propose a similar approach, optimized for speed:
 |------|-----------------|-----------------|
 | **1. SMILES → conformers** | `gen_conf.py` | Open-source RDKit ETKDG is used to generate a low-energy conformation from sampling 10 conformations per ligand. (This is fast but can be replaced with more accurate methods if needed). 
 | **2. Compute 3D PSA** | `compute_psa.py` | QikProp (Schrödinger) ⇒ to compute 3D PSA<br> (RDKIT can be used as an Open-source alternative). |
-| **3. Build ML model** | `mdck_model.py` | In our example, an **MDCK permeability** model for cyclic peptides was trained with Schrodinger AutoQSAR, using 3D PSA and other standard descriptors. The training set was based on 328 cyclic peptides from http://cycpeptmpdb.com |
+| **3. Build ML model** | `mdck_model.py` | In our example, an **MDCK permeability** model for cyclic peptides was trained with Schrodinger AutoQSAR, using 3D PSA and standard property-based descriptors. The training set was based on 328 cyclic peptides from http://cycpeptmpdb.com |
 | **4. Build web portal** | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES in server to return predicted 3D PSA and MDCK Papp in <1 sec. |
 
 ---
