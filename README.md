@@ -33,6 +33,9 @@ Here, we propose a similar approach, optimized for speed:
 
 We will use this as a test-case. The SMILES for a cyclic penta-alanine (five alanines linked head-to-tail in a ring) is: <pre markdown="1"> ```O=C1[C@H](NC([C@H](NC([C@H](NC([C@H](NC([C@H](N1)C)=O)C)=O)C)=O)C)=O)C ``` </pre>
 
+<p align="center">
+  <img src="/images/penta_ala.png" width="300">
+
 Alternatively, one can draw it in a sketcher like ChemDraw and right-click + copy as smile. Now let's generate a low energy 3D conformer:
 
 <pre markdown="1"> python gen_conf.py penta_ala.smi </pre>
