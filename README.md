@@ -29,9 +29,9 @@ Here, we propose a similar approach, optimized for speed:
 
 ---
 
-# 🧪 Toy System: cyclic pentaalanine
+# 🧪 Toy System: cyclic L-Ala₅
 
-We will use this as a test-case. The SMILES for a cyclic pentaalanine (five alanines linked head-to-tail in a ring) is: N1C(=O)C(C)NC(=O)C(C)NC(=O)C(C)NC(=O)C(C)NC(=O)C(C)N1
+We will use this as a test-case. The SMILES for a cyclic penta-alanine (five alanines linked head-to-tail in a ring) is: N1C(=O)[C@@H](C)NC(=O)[C@@H](C)NC(=O)[C@@H](C)NC(=O)[C@@H](C)NC(=O)[C@@H](C)N1
 
 Alternatively, one can draw it in a sketcher like ChemDraw and right-click + copy as smile. 
 
