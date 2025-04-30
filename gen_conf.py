@@ -19,7 +19,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 
 
-def generate_lowest_energy_conformer(smiles: str, name: str, out_dir: Path, n_confs: int = 100):
+def generate_lowest_energy_conformer(smiles: str, name: str, out_dir: Path, n_confs: int = 20):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         raise ValueError(f"Invalid SMILES: {smiles}")
