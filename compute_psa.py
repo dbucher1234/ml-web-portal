@@ -3,53 +3,86 @@
 compute_psa.py
 ==============
 
-Compute 3D polar surface area (PSA) for an SDF:
+Compute 3D polar surface area (PSA).
 
-1. QikProp route  (if --method qikprop and $SCHRODINGER present)
-2. Open-source route: load SDF, triangulate SASA with RDKit + FreeSASA
-   and sum polar atoms' surface.
+• default  : QikProp (Schrödinger)            -- reliable, reference value
+• --method open : placeholder for open-source route (to be implemented)
 
-Usage
------
-python compute_psa.py conformers/lig_A.sdf      # open-source default
-python compute_psa.py conformers/lig_A.sdf --method qikprop
+The script:
+1) Copies the input SDF to a temporary directory.
+2) Runs $SCHRODINGER/qikprop (blocking if Job Control is used).
+3) Reads PSA from   *.CSV   (modern) or  *.qprop  (legacy) output.
 """
 
-import os, subprocess, argparse
-import freesasa, rdkit.Chem as Chem
+import os, shutil, subprocess, argparse, tempfile, csv
+from pathlib import Path
 
-def psa_opensource(sdf:str) -> float:
-    mol = Chem.SDMolSupplier(sdf, removeHs=False)[0]
-    struct = freesasa.Structure(sdf)
-    result = freesasa.calc(struct)
-    psa = 0.0
-    for i, atom in enumerate(mol.GetAtoms()):
-        if atom.GetAtomicNum() in (7, 8):                   # N or O
-            psa += result.atomArea(i)
-    return psa
-
-def psa_qikprop(sdf:str) -> float:
+# ─────────────────────────── QikProp branch ─────────────────────────── #
+def psa_qikprop(sdf_path: str) -> float:
     sch = os.environ.get("SCHRODINGER")
-    if not sch: raise RuntimeError("SCHRODINGER env var not set")
-    subprocess.run([os.path.join(sch,"qikprop"), sdf], check=True)
-    qprop = os.path.splitext(sdf)[0] + ".qprop"
-    with open(qprop) as fh:
-        for line in fh:
-            if line.startswith("  PSA"):
-                return float(line.split()[2])
-    raise ValueError("PSA not found in .qprop")
+    if not sch:
+        raise RuntimeError("SCHRODINGER env var not set")
 
+    sdf_path = Path(sdf_path).resolve()
+    if not sdf_path.exists():
+        raise FileNotFoundError(sdf_path)
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmp_sdf = Path(tmpdir) / sdf_path.name
+        shutil.copy(sdf_path, tmp_sdf)
+
+        # Run QikProp, capture stdout to see if Job Control submits a job
+        result = subprocess.run(
+            [Path(sch) / "qikprop", tmp_sdf.name],
+            cwd=tmpdir,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+
+        # Wait for Job Control job if needed
+        for line in result.stdout.splitlines():
+            if line.startswith("JobId:"):
+                job_id = line.split()[1]
+                subprocess.run([Path(sch) / "util" / "jobwait", job_id],
+                               cwd=tmpdir, check=True)
+                break
+
+        base       = tmp_sdf.with_suffix("")
+        csv_file   = base.with_suffix(".CSV")
+        qprop_file = base.with_suffix(".qprop")
+
+        if csv_file.exists():                       # modern versions
+            with csv_file.open(newline="") as fh:
+                row = next(csv.DictReader(fh))
+                return float(row["PSA"])
+
+        if qprop_file.exists():                     # legacy versions
+            with qprop_file.open() as fh:
+                for line in fh:
+                    if line.strip().startswith("PSA"):
+                        return float(line.split()[1])
+
+        raise RuntimeError("QikProp finished but produced neither CSV nor qprop")
+
+
+# ────────────────────────── open-source placeholder ──────────────────── #
+def psa_open(_sdf: str) -> float:
+    raise NotImplementedError("Open-source PSA route not yet implemented")
+
+
+# ───────────────────────────────── CLI ───────────────────────────────── #
 if __name__ == "__main__":
-    p = argparse.ArgumentParser()
-    p.add_argument("sdf", help="Input SDF with conformers")
-    p.add_argument("--method", choices=["open", "qikprop"],
-                   default="open", help="PSA engine")
-    args = p.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("sdf", help="Input SDF file with conformers")
+    parser.add_argument("--method", choices=["qikprop", "open"],
+                        default="qikprop",
+                        help="Engine (default=qikprop)")
+    args = parser.parse_args()
 
-    if args.method == "qikprop":
-        psa = psa_qikprop(args.sdf)
-    else:
-        psa = psa_opensource(args.sdf)
-
-    print(f"3D PSA = {psa:.1f} Å²  ({args.method})")
+    try:
+        psa_val = psa_qikprop(args.sdf) if args.method == "qikprop" else psa_open(args.sdf)
+        print(f"3D PSA = {psa_val:.1f} Å²   ({args.method})")
+    except Exception as exc:
+        print(f"[ERROR] {exc}")
 

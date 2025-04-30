@@ -1,0 +1,824 @@
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf0                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.858  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.520  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   183.736  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.783  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   327.099  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.133  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.955  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.741  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.785  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.936  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.660  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.913  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.654  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.473  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.967M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.148  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.267M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2866M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1544M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.566  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   295.229  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        87M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf0:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.134    SASA                 4.558 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.393    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.272
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.415    Hydrophilic SASA    -0.582 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.148    Total                3.189
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf1                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.810  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.365  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   184.023  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.342  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   326.551  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.225  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.954  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.736  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.779  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.915  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.644  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.889  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.651  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.474  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.969M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.151  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.275M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2894M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1560M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.558  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   302.837  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        88M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf1:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.130    SASA                 4.555 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.390    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.275
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.413    Hydrophilic SASA    -0.578 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.151    Total                3.193
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf2                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.809  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.365  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   184.024  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.342  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   326.550  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.225  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.954  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.736  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.780  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.915  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.644  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.888  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.651  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.474  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.969M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.151  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.275M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2894M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1560M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.558  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   302.848  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        88M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf2:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.130    SASA                 4.555 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.390    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.275
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.413    Hydrophilic SASA    -0.578 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.151    Total                3.193
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf3                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.859  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.520  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   183.737  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.784  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   327.099  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.133  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.955  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.742  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.785  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.937  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.660  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.914  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.654  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.473  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.967M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.148  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.267M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2866M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1544M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.566  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   295.213  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        87M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf3:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.134    SASA                 4.558 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.393    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.272
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.415    Hydrophilic SASA    -0.582 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.148    Total                3.189
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf4                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.809  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.365  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   184.023  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.341  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   326.550  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.225  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.954  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.735  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.780  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.915  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.644  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.888  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.651  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.474  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.969M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.151  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.275M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2894M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1560M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.558  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   302.861  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        88M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf4:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.130    SASA                 4.555 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.390    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.275
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.413    Hydrophilic SASA    -0.577 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.151    Total                3.193
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf5                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.858  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.518  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   183.734  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.784  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   327.097  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.133  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.955  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.742  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.785  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.936  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.660  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.914  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.654  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.473  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.967M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.148  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.267M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2866M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1544M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.566  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   295.237  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        87M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf5:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.134    SASA                 4.558 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.393    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.272
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.415    Hydrophilic SASA    -0.582 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.148    Total                3.189
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf6                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.858  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.520  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   183.736  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.784  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   327.099  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.133  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.955  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.741  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.785  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.936  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.660  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.913  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.654  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.473  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.967M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.148  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.267M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2866M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1544M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.566  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   295.225  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        87M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf6:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.134    SASA                 4.558 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.393    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.272
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.415    Hydrophilic SASA    -0.582 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.148    Total                3.189
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf7                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.809  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.363  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   184.022  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.341  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   326.548  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.225  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.954  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.735  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.780  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.914  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.644  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.888  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.651  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.474  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.969M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.151  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.275M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2894M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1560M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.558  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   302.883  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        88M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf7:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.130    SASA                 4.555 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.390    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.275
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.413    Hydrophilic SASA    -0.577 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.151    Total                3.193
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf8                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.810  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.364  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   184.022  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.342  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   326.549  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.225  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.954  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.736  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.779  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.915  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.644  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.889  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.651  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.474  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.969M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.151  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.275M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2894M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1560M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.558  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   302.861  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        88M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf8:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.130    SASA                 4.555 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.390    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.275
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.413    Hydrophilic SASA    -0.578 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.151    Total                3.193
+
+
+
+
+       QikProp v8.2 (rel118) - Properties Predictions for
+               acetone_conf9                           
+
+ Primary Metabolites & Reactive FGs:
+ > Reactive FG: acceptor carbonyl or derivative
+
+ Principal Descriptors:                             (Range 95% of Drugs)
+     Solute        Molecular Weight      =    58.080  ( 130.0 / 725.0)*
+     Solute        Dipole Moment (D)     =     3.859  (   1.0 /  12.5) 
+     Solute        Total        SASA     =   240.521  ( 300.0 /1000.0)*
+     Solute        Hydrophobic  SASA     =   183.738  (   0.0 / 750.0) 
+     Solute        Hydrophilic  SASA     =    56.783  (   7.0 / 330.0) 
+     Solute        Carbon Pi    SASA     =     0.000  (   0.0 / 450.0) 
+     Solute        Weakly Polar SASA     =     0.000  (   0.0 / 175.0) 
+     Solute        Molecular Volume (A^3)=   327.101  ( 500.0 /2000.0)*
+     Solute        vdW Polar SA (PSA)    =    30.133  (   7.0 / 200.0) 
+     Solute        No. of Rotatable Bonds=     0.000  (   0.0 /  15.0) 
+     Solute as Donor -    Hydrogen Bonds =     0.000  (   0.0 /   6.0) 
+     Solute as Acceptor - Hydrogen Bonds =     2.000  (   2.0 /  20.0) 
+     Solute Globularity   (Sphere = 1)   =     0.955  (  0.75 /  0.95)*
+     Solute Ionization Potential (eV)    =    10.742  (   7.9 /  10.5)*
+     Solute Electron Affinity    (eV)    =    -0.785  (  -0.9 /   1.7) 
+ Predictions for Properties:
+   QP Polarizability (Angstroms^3)       =     6.937  (  13.0 /  70.0)*
+   QP log P  for     hexadecane/gas      =     1.660  (   4.0 /  18.0)*
+   QP log P  for     octanol/gas         =     2.914  (   8.0 /  35.0)*
+   QP log P  for     water/gas           =     2.654  (   4.0 /  45.0)*
+   QP log P  for     octanol/water       =    -0.238  (  -2.0 /   6.5) 
+   QP log S  for   aqueous solubility    =     0.473  (  -6.5 /   0.5) 
+   QP log S - conformation independent   =     0.621  (  -6.5 /   0.5) 
+   QP log K hsa Serum Protein Binding    =    -0.967M (  -1.5 /   1.5) 
+   QP log BB for     brain/blood         =     0.148  (  -3.0 /   1.2) 
+   No. of Primary Metabolites            =         0  (   1.0 /   8.0)*
+   Predicted CNS Activity (-- to ++)     =       + 
+   HERG K+ Channel Blockage: log IC50    =    -2.267M (concern below -5)
+   Apparent Caco-2 Permeability (nm/sec) =      2866M (<25 poor, >500 great)
+   Apparent MDCK   Permeability (nm/sec) =      1544M (<25 poor, >500 great)
+   QP log Kp for skin permeability       =    -2.566  (Kp in cm/hr)
+   Jm, max transdermal transport rate    =   295.216  (micrograms/cm^2-hr)
+   Lipinski Rule of 5 Violations         =         0  (maximum is 4)
+   Jorgensen Rule of 3 Violations        =         0  (maximum is 3)
+   % Human Oral Absorption in GI (+-20%) =        87M (<25% is poor)
+   Qual. Model for Human Oral Absorption =      HIGHM (>80% is high)
+
+       A * indicates a violation of the 95% range. # stars = 10
+      An M indicates MW is outside training range.
+
+
+       5 of   1712 molecules most similar to acetone_conf9:
+          Name                           Similarity(%)
+Carbimide                                     85.80
+Fomepizole                                    81.33
+Acetohydroxamic                               80.28
+Trimethadione                                 78.77
+Mechlorethamine                               77.73
+
+    QP Breakdown (< for descriptor over training max)
+                log Po/w                    -log S
+ H-bond Donor         0.000    H-bond Donor         0.000 
+ H-bond Acceptor     -0.974    H-bond Acceptor     -1.047 
+ Volume               2.134    SASA                 4.558 
+ Ac x Dn^.5/SASA      0.000    Ac x Dn^.5/SASA      0.000 
+ FISA                -0.393    Rotor Bonds          0.000 
+ Non-con amines       0.000    N Protonation        0.000 
+ Non-con amides       0.000    Non-con amides       0.000 
+ WPSA & PISA          0.000    WPSA                 0.000 
+ Constant            -0.705    Constant            -3.783 
+ Total                0.062    Total               -0.272
+
+
+                log BB                    log PMDCK
+ Hydrophilic SASA    -0.415    Hydrophilic SASA    -0.582 
+ WPSA                 0.000    WPSA                 0.000 
+ Rotor Bonds          0.000                         0.000 
+ N Protonation        0.000    Non-con amines       0.000 
+ FOSA                 0.000    COOH/SO3H acids      0.000 
+ Constant             0.564    Constant             3.771
+ Total                0.148    Total                3.189
+
+
+ **      10 molecules were successfully processed,      0 failed         0 skipped **
+
+Elapsed time(sec)  =    0.2
+
