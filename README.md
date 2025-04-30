@@ -1,6 +1,6 @@
 # 🧪 3D PSA → Permeability → Web Portal
 
-Permeability becomes critical for compounds above ~650 Da or outside Lipinski space (e.g. macrocycles, PROTACs, peptides), because their large size and high polarity hinder passive diffusion across cell membranes, making efficient cellular uptake the primary barrier to efficacy.
+Permeability becomes critical for compounds above ~650 Da or outside Lipinski space (e.g. macrocycles, PROTACs, peptides), because their large size and high polarity hinder passive diffusion across cell membranes, making efficient cellular uptake one of the primary barrier to efficacy.
 
 This tutorial starts with a **physics-based 3D polar surface area (PSA)** calculation, layers on a **machine-learning permeability model**, and ends with a **chemist-friendly Flask web app**.
 
