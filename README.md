@@ -35,9 +35,11 @@ We will use this as a test-case. The SMILES for a cyclic penta-alanine (five ala
 
 Alternatively, one can draw it in a sketcher like ChemDraw and right-click + copy as smile. 
 
-<p align="center">
-  <img src="/images/penta_ala.png" width="300">
+<pre markdown="1"> ```python gen_conf.py Ala5.smi  ``` </pre>
+penta_ala: best conformer = 13, energy = 25.52 kcal/mol
 
+We will now calculate the 3D PSA for this conformer:
+<pre markdown="1"> ```python 3d_psa.py ``` </pre>
 ---
 
 ## 🚀 Quick Start (local)
