@@ -10,7 +10,7 @@ A three-step tutorial that starts with a **physics-based 3D polar surface area (
 
 In similar work, Möbitz et al. generated 3D PSA by first producing conformers with OpenEye Omega and clustering them with RDKit. Each representative conformer then underwent a single-point COSMO QM calculation, after which the polar surface area was obtained by summing the solvent-accessible surface where the atomic charge density exceeded |q| > 0.002 e Å⁻². These 3D PSA values were subsequently used to train a permeability model on 114 proprietary beyond-Rule-of-5 compounds.
 
-Additionally, Lawrenz et al. employed a Schrödinger QM workflow, in which they built 3D structures with LigPrep sampled conformations in MacroModel, and for the lowest-energy conformers computed single-point calculations both in gas phase and with an implicit-solvent model. The difference between the two energies provided the 3D solvation energy, E-sol, which served as the key descriptor for a trained permeability model.
+Additionally, Lawrenz et al. employed a Schrödinger workflow, in which they built 3D structures with LigPrep and sampled conformations in MacroModel. For the lowest-energy conformers, they computed single-point QM calculations both in gas phase and with an implicit-solvent model. The difference between the two energies provided the 3D solvation energy, E-sol, which served as the key descriptor for a trained permeability model.
 
 In this example, we will propose a similar but Open-source approach: 
 
