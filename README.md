@@ -24,7 +24,7 @@ Here, we propose a similar approach, optimized for speed:
 |------|-----------------|-----------------|
 | **1. SMILES → conformers**     | `gen_conf.py` | Open-source RDKit (ETKDG + UFF) is used to sample 20 conformers and select the lowest-energy one, providing a fast but replaceable method for generating reasonable 3D structures. 
 | **2. Compute 3D PSA**          | `compute_psa.py` | QikProp (Schrödinger) ⇒ to compute 3D PSA<br> (RDKIT can be used as an Open-source alternative). |
-| **3. Use ML model**          | `mdck_model.py` | In our example, a model for **MDCK permeability** specifically designed for cyclic peptides was pre-trained with Schrodinger AutoQSAR, using 3D PSA and standard property-based descriptors. The training set was based on 328 cyclic peptides from http://cycpeptmpdb.com |
+| **3. Use ML model**          | `mdck_model.py` | In our example, a model for **MDCK permeability** specifically designed for cyclic peptides will be built. |
 | **4. Build web portal**        | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES in server to return predicted 3D PSA and MDCK Papp in <1 sec. |
 
 ---
@@ -44,6 +44,10 @@ Alternatively, one can draw it in a sketcher like ChemDraw and right-click + cop
 We can now calculate the 3D PSA for this conformer:
 <pre markdown="1"> python compute_psa.py conf_out/penta_ala.sdf </pre>
 *3D PSA = 172.3 Å²   (qikprop)*
+
+## 🚀 Building a ML model
+
+Let's do a model of MDCK with data from the cyclic peptides database, http://cycpeptmpdb.com. The idea is to use 3D PSA to predict MDCK (Papp in log scale), in addition to standard property-based descriptors (not structural fingerprints to generalize better and avoid over-fitting). The trainning set is quite small, with only 40 data points. We will first generate conformers for the cyclic peptides (20 conformer per peptide) take the lowest energy one for each, and calculate descriptors. 
 
 ---
 
