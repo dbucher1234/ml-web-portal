@@ -80,7 +80,11 @@ Below is a step-by-step guide to run the full pipeline on **any ligand** (SMILES
 
 ---
 
-## 🧪 Toy System Example: cyclic penta‑alanine cyclic penta‑alanine
+## 🧪 Toy System Example: cyclic penta‑alanine
+
+<p align="center">
+  <img src="images/penta_ala.png" alt="Cyclic penta-alanine structure" />
+</p>
 
 SMILES (head‐to‐tail cyclized Ala₅):
 
