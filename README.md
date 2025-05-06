@@ -125,9 +125,7 @@ python src/predict_mdck.py \
 * **Features:** 3D PSA (FreeSASA), MolWt, LogP, TPSA, H‑bond donors/acceptors, rotatable bonds, heavy atom count, aromatic ring count, formal charge.
 * **Performance:** Achieves CV R² ≈ 0.41 and MAE ≈ 0.44 log units on the 40‑compound training set.
 
-> Note: With only 40 samples, the model is proof‑of‑concept. Expanding the dataset or exploring gradient boosting and kernel methods can further improve accuracy.
-
----
+> Note: With only 40 samples, the model is proof‑of‑concept. Expanding the dataset can further improve accuracy.
 
 ---
 
