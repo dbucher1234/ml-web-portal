@@ -1,89 +1,114 @@
 # 🧪 3D PSA → Permeability → Web Portal
 
-Permeability becomes critical for compounds above ~650 Da or outside Lipinski space (e.g. macrocycles, PROTACs, peptides), because their large size and high polarity hinder passive diffusion across cell membranes, making efficient cellular uptake one of the primary barrier to efficacy.
+Permeability is critical for large or beyond‐Lipinski compounds (macrocycles, peptides, PROTACs).  Their high polarity and size often hinder passive cellular uptake.
 
-This tutorial starts with a **physics-based 3D polar surface area (PSA)** calculation, layers on a **machine-learning permeability model**, and ends with a **chemist-friendly Flask web app**.
-
----
-
-## Why 3D PSA?
-
-3D PSA measures the polar part of a molecule’s solvent-accessible surface. Unlike 2D TPSA, it captures **shielding, intramolecular H-bonds and folding—key drivers of permeability in beyond-Lipinski space**.
-
-To address these permeability challenges, several groups have turned to physics-based 3D descriptors like 3D PSA and solvation energy (E-sol), each implementing distinct workflows to capture conformational and electronic effects. Möbitz et al. generated 3D PSA by first producing conformers with OpenEye Omega and clustering them with RDKit. Each representative conformer then underwent a single-point COSMO QM calculation, after which the polar surface area was obtained by summing the solvent-accessible surface where the atomic charge density exceeded |q| > 0.002 e Å⁻². These 3D PSA values were subsequently used to train a permeability model on 114 proprietary beyond-Rule-of-5 compounds.
-
-Additionally, Lawrenz et al. employed a Schrödinger workflow, in which they built 3D structures with LigPrep and sampled conformations in MacroModel. For the lowest-energy conformers, they computed single-point QM calculations both in gas phase and with an implicit-solvent model. The difference between the two energies provided the 3D solvation energy, E-sol, which served as the key descriptor for a trained permeability model.
-
-Here, we propose a similar approach, optimized for speed: 
+This project demonstrates a **fast 3D PSA calculation** + **machine‐learning MDCK permeability model**, culminating in a **chemist‐friendly prediction script** or Flask web portal.
 
 ---
 
-## 🗺 Roadmap
-
-| Step | Script / Folder | What it does | 
-|------|-----------------|-----------------|
-| **1. SMILES → conformers**     | `gen_conf.py` | Open-source RDKit (ETKDG + UFF) is used to sample 20 conformers and select the lowest-energy one, providing a fast but replaceable method for generating reasonable 3D structures. 
-| **2. Compute 3D PSA**          | `compute_psa.py` | QikProp (Schrödinger) ⇒ to compute 3D PSA<br> (RDKIT can be used as an Open-source alternative). |
-| **3. Use ML model**          | `mdck_model.py` | In our example, a model for **MDCK permeability** specifically designed for cyclic peptides will be built. |
-| **4. Build web portal**        | `app.py`, `templates/`, `static/` | Flask app: paste a SMILES in server to return predicted 3D PSA and MDCK Papp in <1 sec. |
-
----
-
-# 🧪 Toy System: cyclic L-Ala₅
-
-We will use this as a test-case. The SMILES for a cyclic penta-alanine (five alanines linked head-to-tail in a ring) is: <pre markdown="1"> ```O=C1[C@H](NC([C@H](NC([C@H](NC([C@H](NC([C@H](N1)C)=O)C)=O)C)=O)C)=O)C ``` </pre>
-
-<p align="center">
-  <img src="/images/penta_ala.png" width="300">
-
-Alternatively, one can draw it in a sketcher like ChemDraw and right-click + copy as smile. Now let's generate a low energy 3D conformer:
-
-<pre markdown="1"> python gen_conf.py penta_ala.smi </pre>
-*penta_ala: best conformer = 13, energy = 25.52 kcal/mol*
-
-We can now calculate the 3D PSA for this conformer:
-<pre markdown="1"> python compute_psa.py conf_out/penta_ala.sdf </pre>
-*3D PSA = 172.3 Å²   (qikprop)*
-
-## 🚀 Building a ML model
-
-Let's do a model of MDCK with data from the cyclic peptides database, http://cycpeptmpdb.com. The idea is to use 3D PSA to predict MDCK (Papp in log scale), in addition to standard property-based descriptors (not structural fingerprints to generalize better and avoid over-fitting). The trainning set is quite small, with only 40 data points. We will first generate conformers for the cyclic peptides (20 conformer per peptide) take the lowest energy one for each, and calculate descriptors. 
-
----
-
-## 🚀 Quick Start (local)
-
-```bash
-# clone
-git clone https://github.com/dbucher1234/ml-web-portal.git
-cd ml-web-portal
-
-# create conda env
-conda env create -f environment.yml
-conda activate ml_web
-
-# 1️⃣  compute PSA (open-source route)
-python 1_compute_psa.py data/ligands.smi --method open
-
-# 2️⃣  train permeability model
-python 2_train_mdck_model.py
-
-# 3️⃣  launch web portal
-python app.py           # → http://127.0.0.1:5000
+## 📂 File Structure & Folders
 
 ```
+ml-web-portal/
+├── data/                   # Example input files
+│   ├── penta_ala.smi       # SMILES for cyclic penta‑alanine
+│   └── cycpep_training.csv # 40‑compound training set (SMILES, MDCK, 3D PSA)
+│
+├── outputs/                # Generated results and models
+│   ├── penta_ala.sdf       # Lowest‑energy conformer 3D SDF (gen_conf.py)
+│   ├── mdck_model.pkl      # Trained Random Forest model (train_model.py)
+│   └── penta_ala_pred.csv  # Predicted MDCK values (predict_mdck.py)
+│
+├── src/                    # Python scripts for the workflow
+│   ├── gen_conf.py         # Generate 3D conformers from SMILES
+│   ├── utils_sasa.py       # Compute 3D PSA via FreeSASA on 3D SDF
+│   ├── train_model.py      # Train RF regression on MDCK Papp
+│   └── predict_mdck.py     # Predict MDCK Papp on new 3D SDF
+│
+└── environment.yml         # Conda environment with RDKit, FreeSASA, sklearn, etc.
+```
+
+---
+
+## 🚀 Quick Tutorial: SMILES → MDCK Prediction
+
+Below is a step‑by‑step guide to run the full pipeline on **penta‑ala**.
+
+1. **Create a Conda environment**
+
+   ```bash
+   conda env create -f environment.yml
+   conda activate ml_web
+   ```
+
+2. **Generate a 3D conformer**
+
+   ```bash
+   python src/gen_conf.py data/penta_ala.smi --output outputs/penta_ala.sdf
+   ```
+
+   * Uses RDKit ETKDG + UFF to sample 20 conformers
+   * Selects the lowest‐energy structure
+
+3. **Compute 3D PSA (polar surface area)**
+
+   ```bash
+   python src/utils_sasa.py outputs/penta_ala.sdf
+   ```
+
+   * Calls FreeSASA to sum solvent‐accessible surface on N/O atoms
+
+4. **Train the MDCK permeability model**
+
+   ```bash
+   python src/train_model.py \
+       --input data/cycpep_training.csv \
+       --output outputs/mdck_model.pkl
+   ```
+
+   * Loads training CSV (SMILES, MDCK, 3D PSA)
+   * Computes eight descriptors (MolWt, LogP, TPSA, H‑bond donors/acceptors, rotatable bonds, heavy atom count, aromatic rings, formal charge)
+   * Trains a Random Forest (5‑fold CV) and reports CV R² & MAE
+   * Saves the trained pipeline to `outputs/mdck_model.pkl`
+
+5. **Predict MDCK on a new peptide**
+
+   ```bash
+   python src/predict_mdck.py \
+       --model outputs/mdck_model.pkl \
+       --input-sdf outputs/penta_ala.sdf \
+       --output-csv outputs/penta_ala_pred.csv
+   ```
+
+   * Loads your 3D SDF, recomputes PSA + descriptors
+   * Outputs predicted MDCK Papp values to CSV
+
+---
+
+## 🧪 Toy System Example: cyclic penta‑alanine
+
+SMILES (head‐to‐tail cyclized Ala₅):
+
+```
+O=C1[C@H](NC([C@H](NC([C@H](NC([C@H](NC([C@H](N1)C)=O)C)=O)C)=O)C)=O)C
+```
+
+This drives the steps above and yields a predicted MDCK log P<sub>app</sub>.
+
+---
+
+## 📈 Model Details & Performance
+
+* **Model:** Random Forest regressor with hyperparameter grid over `n_estimators=[50,100]`, `max_depth=[5,10]` via 5‑fold CV.
+* **Features:** 3D PSA (FreeSASA), MolWt, LogP, TPSA, H‑bond donors/acceptors, rotatable bonds, heavy atom count, aromatic ring count, formal charge.
+* **Performance:** Achieves CV R² ≈ 0.41 and MAE ≈ 0.44 log units on the 40‑compound training set.
+
+> Note: With only 40 samples, the model is proof‑of‑concept. Expanding the dataset or exploring gradient boosting and kernel methods can further improve accuracy.
+
 ---
 
 ## 📚 References
 
-- Möbitz H.  
-  “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule-of-5 Space.”  
-  *ChemMedChem* **2023**, 18, e202300395.
-  
-- Lawrenz M., Svensson M., Kato M. et al.  
-  “A Computational Physics-based Approach to Predict Unbound Brain-to-Plasma Partition Coefficient, Kp,uu.”  
-  *J. Chem. Inf. Model.* **2023**, 63, 12, 3786–3798.
-
-
-
+* Möbitz H. “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule‑of‑5 Space.” *ChemMedChem* **2023**, 18, e202300395.
+* Lawrenz M. et al. “A Computational Physics‑based Approach to Predict Unbound Brain‑to‑Plasma Partition Coefficient, K<sub>p,uu</sub>.” *J. Chem. Inf. Model.* **2023**, 63(12), 3786–3798.
 
