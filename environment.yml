@@ -1,0 +1,14 @@
+name: cycpep-mdck
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - rdkit
+  - freesasa               # fast analytic SASA incl. per-atom areas
+  - pandas
+  - numpy
+  - scikit-learn
+  - joblib
+  - tqdm
+  - pyarrow                # for fast Parquet
+
