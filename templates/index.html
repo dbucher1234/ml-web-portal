@@ -1,0 +1,63 @@
+<!-- … earlier HTML … -->
+<input type="text" id="smiles" placeholder="Enter SMILES" />
+<input type="file" id="sdf" accept=".sdf" />
+<button id="submit">Submit</button>
+<!-- … -->
+<script>
+document.getElementById('submit').addEventListener('click', async () => {
+  const smiles = document.getElementById('smiles').value;
+  const sdfFile = document.getElementById('sdf').files[0];
+  if (!smiles && !sdfFile) {
+    alert("Please enter SMILES or upload an SDF");
+    return;
+  }
+  document.getElementById('progress').textContent = 'Calculating…';
+
+  // display 2D image if SMILES
+  if (smiles) {
+    const imgRes = await fetch('/calculate_image', { method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:`smiles=${encodeURIComponent(smiles)}`
+    });
+    const imgJson = await imgRes.json();
+    document.getElementById('molecule-image').innerHTML = `<img src="${imgJson.mol_image}">`;
+  }
+
+  // prepare payload
+  let payload, opts;
+  if (sdfFile) {
+    payload = new FormData();
+    payload.append('sdf', sdfFile);
+    opts = { method:'POST', body:payload };
+  } else {
+    payload = `smiles=${encodeURIComponent(smiles)}`;
+    opts = { method:'POST',
+             headers:{'Content-Type':'application/x-www-form-urlencoded'},
+             body: payload };
+  }
+
+  // fetch prediction
+  const res = await fetch('/predict', opts);
+  const r = await res.json();
+  if (r.error) {
+    document.getElementById('result').textContent = `Error: ${r.error}`;
+  } else {
+    let resultHTML = `
+      MolWt:            ${r.MolWt.toFixed(2)}<br>
+      LogP:             ${r.LogP.toFixed(2)}<br>
+      TPSA:             ${r.TPSA.toFixed(2)}<br>
+      H-Donors:         ${r.NumHDonors}<br>
+      H-Acceptors:      ${r.NumHAcceptors}<br>
+      Rotatable Bonds:  ${r.NumRotatableBonds}<br>
+      Heavy Atoms:      ${r.HeavyAtomCount}<br>
+      Aromatics:        ${r.AromaticRingCount}<br>
+      Formal Charge:    ${r.FormalCharge}<br>
+      3D PSA:           ${r["3D_PSA"].toFixed(2)} Å²<br>
+      MDCK log Papp:    ${r.MDCK_logPapp.toFixed(2)}
+    `;
+    document.getElementById('result').innerHTML = resultHTML;
+  }
+  document.getElementById('progress').textContent = '';
+});
+</script>
+
