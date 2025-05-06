@@ -129,6 +129,38 @@ python src/predict_mdck.py \
 
 ---
 
+---
+
+## 🖥️ Web Portal Setup
+
+A Flask-based web interface allows chemists to interact with the pipeline without writing code:
+
+1. **Ensure the Flask app and templates** are in `src/` alongside `app.py`, along with `templates/` and `static/` directories.  The key file is `src/app.py`.
+2. **Install dependencies** (RDKit, FreeSASA, Flask, etc.) via:
+
+   ```bash
+   conda activate ml_web
+   pip install flask joblib pandas
+   # or ensure environment.yml has flask and run `conda env update -f environment.yml`
+   ```
+3. **Run the server**:
+
+   ```bash
+   # from project root
+   export FLASK_APP=src/app.py
+   flask run
+   # or simply
+   python src/app.py
+   ```
+4. **Open your browser** at `http://localhost:5000`.
+5. **Use the web form** to enter a SMILES string or upload a 3D SDF:
+
+   * The app will generate (or accept) a 3D conformer
+   * Compute 3D PSA and other descriptors
+   * Return the **MDCK Papp** prediction in JSON or render on the page
+
+This web portal leverages the same underlying scripts (`gen_conf.py`, `utils_sasa.py`, `predict_mdck.py`) for a seamless user experience.
+
 ## 📚 References
 
 * Möbitz H. “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule‑of‑5 Space.” *ChemMedChem* **2023**, 18, e202300395.
