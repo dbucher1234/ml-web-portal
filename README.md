@@ -1,6 +1,6 @@
 # 🧪 3D PSA → Permeability → Web Portal
 
-Permeability is critical for large or beyond‐Lipinski compounds (macrocycles, peptides, PROTACs).  Their high polarity and size often hinder passive cellular uptake.
+Permeability is critical for beyond‐Lipinski compounds (macrocycles, peptides, PROTACs), as their high polarity and size often hinder passive cellular uptake.
 
 This project demonstrates a **fast 3D PSA calculation** + **machine‐learning MDCK permeability model**, culminating in a **chemist‐friendly prediction script** or Flask web portal.
 
