@@ -100,24 +100,14 @@ This drives the steps above and yields a predicted MDCK log Papp.
 
 ```bash
 python src/gen_conf.py data/penta_ala.smi --output outputs/penta_ala.sdf
-```
-
-Output:
-
-```
-penta_ala: best conformer = 15, energy = 25.50 kcal/mol
+# penta_ala: best conformer = 15, energy = 25.50 kcal/mol
 ```
 
 2. **Compute 3D PSA**
 
 ```bash
 python src/utils_sasa.py outputs/penta_ala.sdf
-```
-
-Output:
-
-```
-penta_ala    PSA = 159.9 Å²
+# penta_ala    PSA = 159.9 Å²
 ```
 
 3. **Predict MDCK**
@@ -126,16 +116,10 @@ penta_ala    PSA = 159.9 Å²
 python src/predict_mdck.py \
     --model outputs/mdck_model.pkl \
     --input-sdf outputs/penta_ala.sdf
+# penta_ala    Predicted_MDCK = -5.250217
 ```
 
-Output:
-
-```
-     Name  Predicted_MDCK
-penta_ala       -5.250217
-```
-
-> **Note:** MDCK Papp is reported in **log scale**. A log Papp (A→B) of –5 corresponds to 10⁻⁵ cm/s, indicating moderate cell permeability.
+> **Note:**\*\* MDCK Papp is reported in **log scale**. A log Papp (A→B) of –5 corresponds to 10⁻⁵ cm/s, indicating moderate cell permeability.
 
 ## 📈 Model Details & Performance
 
