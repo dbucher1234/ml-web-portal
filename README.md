@@ -30,38 +30,57 @@ ml-web-portal/
 
 ---
 
-## 🚀 Quick Tutorial: SMILES → MDCK Prediction
+## 🚀 Quick Tutorial: SMILES or SDF → MDCK Prediction
 
-Below is a step‑by‑step guide to run the full pipeline on **penta‑ala**.
+Below is a step-by-step guide to run the full pipeline on **any ligand** (SMILES or SDF).
 
 1. **Create a Conda environment**
 
    ```bash
+   conda env create -f environment.yml
+   conda activate ml_web
    ```
 
-python src/predict\_mdck.py&#x20;
-\--model outputs/mdck\_model.pkl&#x20;
-\--input-sdf outputs/penta\_ala.sdf&#x20;
-\--output-csv outputs/penta\_ala\_pred.csv
+2. **Generate or provide a 3D conformer**
 
-````
+   If you have a SMILES:
 
-   **Example output:**
-   ```text
-     Name  Predicted_MDCK
-penta_ala       -5.250217
-````
+   ```bash
+   python src/gen_conf.py path/to/ligand.smi --output outputs/ligand.sdf
+   ```
 
-> **Note:** MDCK Papp values are reported in **log scale**. A log Papp (A→B) of –5 corresponds to 10⁻⁵ cm/s, indicating moderate cell permeability—sufficient for passive diffusion but possibly needing optimization for intracellular targets.
+   If you already have a 3D SDF:
 
-```
+   ```bash
+   cp path/to/ligand.sdf outputs/ligand.sdf
+   ```
 
-   - Loads your 3D SDF, recomputes PSA + descriptors
-   - Outputs predicted MDCK Papp values to CSV
+3. **Compute 3D PSA**
+
+   ```bash
+   python src/utils_sasa.py outputs/ligand.sdf
+   ```
+
+4. **Train the MDCK permeability model**
+
+   ```bash
+   python src/train_model.py \
+       --input data/cycpep_training.csv \
+       --output outputs/mdck_model.pkl
+   ```
+
+5. **Predict MDCK for your ligand**
+
+   ```bash
+   python src/predict_mdck.py \
+       --model outputs/mdck_model.pkl \
+       --input-sdf outputs/ligand.sdf \
+       --output-csv outputs/ligand_pred.csv
+   ```
 
 ---
 
-## 🧪 Toy System Example: cyclic penta‑alanine
+## 🧪 Toy System Example: cyclic penta‑alanine cyclic penta‑alanine
 
 <p align="center">
   <img src="images/penta_ala.png" alt="Cyclic penta-alanine structure" />
@@ -70,20 +89,59 @@ penta_ala       -5.250217
 SMILES (head‐to‐tail cyclized Ala₅):
 
 ```
-
-O=C1[C@H](NC%28[C@H]%28NC%28[C@H]%28NC%28[C@H]%28NC%28[C@H]%28N1%29C%29=O%29C%29=O%29C%29=O%29C%29=O)C
-
+O=C1[C@H](NC([C@H](NC([C@H](NC([C@H](NC([C@H](N1)C)=O)C)=O)C)=O)C)=O)C
 ```
 
 This drives the steps above and yields a predicted MDCK log Papp.
 
----
+**Example run outputs:**
+
+1. **Generate 3D conformer**
+
+```bash
+python src/gen_conf.py data/penta_ala.smi --output outputs/penta_ala.sdf
+```
+
+Output:
+
+```
+penta_ala: best conformer = 15, energy = 25.50 kcal/mol
+```
+
+2. **Compute 3D PSA**
+
+```bash
+python src/utils_sasa.py outputs/penta_ala.sdf
+```
+
+Output:
+
+```
+penta_ala    PSA = 159.9 Å²
+```
+
+3. **Predict MDCK**
+
+```bash
+python src/predict_mdck.py \
+    --model outputs/mdck_model.pkl \
+    --input-sdf outputs/penta_ala.sdf
+```
+
+Output:
+
+```
+     Name  Predicted_MDCK
+penta_ala       -5.250217
+```
+
+> **Note:** MDCK Papp is reported in **log scale**. A log Papp (A→B) of –5 corresponds to 10⁻⁵ cm/s, indicating moderate cell permeability.
 
 ## 📈 Model Details & Performance
 
-- **Model:** Random Forest regressor with hyperparameter grid over `n_estimators=[50,100]`, `max_depth=[5,10]` via 5‑fold CV.
-- **Features:** 3D PSA (FreeSASA), MolWt, LogP, TPSA, H‑bond donors/acceptors, rotatable bonds, heavy atom count, aromatic ring count, formal charge.
-- **Performance:** Achieves CV R² ≈ 0.41 and MAE ≈ 0.44 log units on the 40‑compound training set.
+* **Model:** Random Forest regressor with hyperparameter grid over `n_estimators=[50,100]`, `max_depth=[5,10]` via 5‑fold CV.
+* **Features:** 3D PSA (FreeSASA), MolWt, LogP, TPSA, H‑bond donors/acceptors, rotatable bonds, heavy atom count, aromatic ring count, formal charge.
+* **Performance:** Achieves CV R² ≈ 0.41 and MAE ≈ 0.44 log units on the 40‑compound training set.
 
 > Note: With only 40 samples, the model is proof‑of‑concept. Expanding the dataset or exploring gradient boosting and kernel methods can further improve accuracy.
 
@@ -91,8 +149,6 @@ This drives the steps above and yields a predicted MDCK log Papp.
 
 ## 📚 References
 
-- Möbitz H. “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule‑of‑5 Space.” *ChemMedChem* **2023**, 18, e202300395.
-- Lawrenz M. et al. “A Computational Physics‑based Approach to Predict Unbound Brain‑to‑Plasma Partition Coefficient, Kp,uu.” *J. Chem. Inf. Model.* **2023**, 63(12), 3786–3798.
-
-```
+* Möbitz H. “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule‑of‑5 Space.” *ChemMedChem* **2023**, 18, e202300395.
+* Lawrenz M. et al. “A Computational Physics‑based Approach to Predict Unbound Brain‑to‑Plasma Partition Coefficient, Kp,uu.” *J. Chem. Inf. Model.* **2023**, 63(12), 3786–3798.
 
