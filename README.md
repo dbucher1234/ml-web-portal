@@ -14,7 +14,7 @@ To address these permeability challenges, several groups have turned to physics-
 
 Similarly, Lawrenz et al. employed a Schrödinger workflow, in which they built 3D structures with LigPrep and sampled conformations in MacroModel. For the lowest-energy conformers, they computed single-point QM calculations both in gas phase and with an implicit-solvent model. The difference between the two energies provided the 3D solvation energy, E-sol, which served as the key descriptor for a trained permeability model.
 
-Here, we propose a simple open-source approach, optimized for speed. 
+Here, we propose an alternative open-source approach, optimized for speed. 
 
 ---
 
