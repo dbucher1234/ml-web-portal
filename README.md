@@ -87,19 +87,13 @@ Below is a step‑by‑step guide to run the full pipeline on **penta‑ala**.
 
 ## 🧪 Toy System Example: cyclic penta‑alanine
 
-<!-- Embed a visual of the peptide structure -->
-
-![Cyclic penta‑alanine structure](images/penta_ala.png)
-
-SMILES (head‑to‑tail cyclized Ala₅):
-
 SMILES (head‐to‐tail cyclized Ala₅):
 
 ```
 O=C1[C@H](NC([C@H](NC([C@H](NC([C@H](NC([C@H](N1)C)=O)C)=O)C)=O)C)=O)C
 ```
 
-This drives the steps above and yields a predicted MDCK log P<sub>app</sub>.
+This drives the steps above and yields a predicted MDCK log Papp.
 
 ---
 
@@ -116,5 +110,5 @@ This drives the steps above and yields a predicted MDCK log P<sub>app</sub>.
 ## 📚 References
 
 * Möbitz H. “Design Principles for Balancing Lipophilicity and Permeability in beyond Rule‑of‑5 Space.” *ChemMedChem* **2023**, 18, e202300395.
-* Lawrenz M. et al. “A Computational Physics‑based Approach to Predict Unbound Brain‑to‑Plasma Partition Coefficient, K<sub>p,uu</sub>.” *J. Chem. Inf. Model.* **2023**, 63(12), 3786–3798.
+* Lawrenz M. et al. “A Computational Physics‑based Approach to Predict Unbound Brain‑to‑Plasma Partition Coefficient, Kp,uu.” *J. Chem. Inf. Model.* **2023**, 63(12), 3786–3798.
 
