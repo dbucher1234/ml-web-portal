@@ -87,6 +87,12 @@ Below is a step‑by‑step guide to run the full pipeline on **penta‑ala**.
 
 ## 🧪 Toy System Example: cyclic penta‑alanine
 
+<!-- Embed a visual of the peptide structure -->
+
+![Cyclic penta‑alanine structure](images/penta_ala.png)
+
+SMILES (head‑to‑tail cyclized Ala₅):
+
 SMILES (head‐to‐tail cyclized Ala₅):
 
 ```
