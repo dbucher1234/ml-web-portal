@@ -1,14 +1,24 @@
 name: cycpep-mdck
 channels:
-  - conda-forge
-dependencies:
-  - python=3.11
-  - rdkit
-  - freesasa               # fast analytic SASA incl. per-atom areas
-  - pandas
-  - numpy
-  - scikit-learn
-  - joblib
-  - tqdm
-  - pyarrow                # for fast Parquet
+
+* conda-forge
+  dependencies:
+* python=3.11
+* rdkit
+* freesasa               # fast analytic SASA incl. per-atom areas
+* pandas
+* numpy
+* scikit-learn
+* joblib
+* tqdm
+* pyarrow                # for fast Parquet
+* flask                  # web server framework for chemist interface
+* jinja2                 # templating engine (Flask dependency)
+* werkzeug               # WSGI utility library (Flask dependency)
+* click                  # CLI utilities (Flask dependency)
+* itsdangerous           # security utilities (Flask dependency)
+* python-dotenv          # environment variable management
+* pip:
+
+  * gunicorn             # production WSGI server
 
