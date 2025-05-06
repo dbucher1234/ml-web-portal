@@ -23,7 +23,10 @@ ml-web-portal/
 │   ├── gen_conf.py         # Generate 3D conformers from SMILES
 │   ├── utils_sasa.py       # Compute 3D PSA via FreeSASA on 3D SDF
 │   ├── train_model.py      # Train RF regression on MDCK Papp
-│   └── predict_mdck.py     # Predict MDCK Papp on new 3D SDF
+│   ├── predict_mdck.py     # Predict MDCK Papp on new structures
+│   ├── app.py              # Flask web server
+│   ├── templates/          # Jinja2 HTML templates for Flask
+│   └── static/             # CSS, JS, images (served as static assets)
 │
 └── environment.yml         # Conda environment with RDKit, FreeSASA, sklearn, etc.
 ```
