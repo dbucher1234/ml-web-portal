@@ -134,9 +134,9 @@ python src/predict_mdck.py \
 
 ## 🖥️ Web Portal Setup
 
-A Flask-based web interface allows chemists to interact with the pipeline without writing code:
+A Flask-based web interface lets chemists interact with the model through their browser, with IT able to provide access via an internal URL.
 
-1. **Run the server**:
+1. **Run the server locally**:
 
    ```bash
    # from project root
