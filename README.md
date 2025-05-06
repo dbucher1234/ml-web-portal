@@ -150,9 +150,9 @@ A Flask-based web interface lets chemists interact with the model through their 
 
    * The app will generate (or accept) a 3D conformer
    * Compute 3D PSA and other descriptors
-   * Return the **MDCK Papp** prediction in JSON or render on the page
+   * Return the **MDCK Papp** prediction 
 
-This web portal leverages the same underlying scripts (`gen_conf.py`, `utils_sasa.py`, `predict_mdck.py`) for a seamless user experience.
+This web portal uses the same underlying scripts (`gen_conf.py`, `utils_sasa.py`, `predict_mdck.py`).
 
 ## 📚 References
 
