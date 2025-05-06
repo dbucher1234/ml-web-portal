@@ -25,8 +25,8 @@ ml-web-portal/
 │   ├── train_model.py      # Train RF regression on MDCK Papp
 │   ├── predict_mdck.py     # Predict MDCK Papp on new structures
 │   ├── app.py              # Flask web server
-│   ├── templates/          # Jinja2 HTML templates for Flask
-│   └── static/             # CSS, JS, images (served as static assets)
+├── templates/ # Jinja2 HTML templates (index.html)
+├── static/ # CSS, JS, images (served statically)
 │
 └── environment.yml         # Conda environment with RDKit, FreeSASA, sklearn, etc.
 ```
@@ -137,14 +137,7 @@ python src/predict_mdck.py \
 A Flask-based web interface allows chemists to interact with the pipeline without writing code:
 
 1. **Ensure the Flask app and templates** are in `src/` alongside `app.py`, along with `templates/` and `static/` directories.  The key file is `src/app.py`.
-2. **Install dependencies** (RDKit, FreeSASA, Flask, etc.) via:
-
-   ```bash
-   conda activate ml_web
-   pip install flask joblib pandas
-   # or ensure environment.yml has flask and run `conda env update -f environment.yml`
-   ```
-3. **Run the server**:
+2. **Run the server**:
 
    ```bash
    # from project root
@@ -153,8 +146,8 @@ A Flask-based web interface allows chemists to interact with the pipeline withou
    # or simply
    python src/app.py
    ```
-4. **Open your browser** at `http://localhost:5000`.
-5. **Use the web form** to enter a SMILES string or upload a 3D SDF:
+3. **Open your browser** at `http://localhost:5000`.
+4. **Use the web form** to enter a SMILES string or upload a 3D SDF:
 
    * The app will generate (or accept) a 3D conformer
    * Compute 3D PSA and other descriptors
