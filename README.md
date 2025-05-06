@@ -2,7 +2,7 @@
 
 Permeability is critical for beyond‐Lipinski compounds (macrocycles, peptides, PROTACs), as their high polarity and size often hinder passive cellular uptake.
 
-This project demonstrates a **fast 3D PSA calculation** + **machine‐learning MDCK permeability model**, culminating in a **chemist‐friendly prediction script** or Flask web portal.
+This project demonstrates a **fast 3D PSA calculation** + **machine‐learning MDCK permeability model**, culminating in a **chemist‐friendly web app**.
 
 ---
 
