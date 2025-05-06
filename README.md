@@ -136,8 +136,7 @@ python src/predict_mdck.py \
 
 A Flask-based web interface allows chemists to interact with the pipeline without writing code:
 
-1. **Ensure the Flask app and templates** are in `src/` alongside `app.py`, along with `templates/` and `static/` directories.  The key file is `src/app.py`.
-2. **Run the server**:
+1. **Run the server**:
 
    ```bash
    # from project root
@@ -146,8 +145,8 @@ A Flask-based web interface allows chemists to interact with the pipeline withou
    # or simply
    python src/app.py
    ```
-3. **Open your browser** at `http://localhost:5000`.
-4. **Use the web form** to enter a SMILES string or upload a 3D SDF:
+2. **Open your browser** at `http://localhost:5000`.
+3. **Use the web form** to enter a SMILES string or upload a 3D SDF:
 
    * The app will generate (or accept) a 3D conformer
    * Compute 3D PSA and other descriptors
