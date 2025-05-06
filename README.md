@@ -25,8 +25,8 @@ ml-web-portal/
 │   ├── train_model.py      # Train RF regression on MDCK Papp
 │   ├── predict_mdck.py     # Predict MDCK Papp on new structures
 │   ├── app.py              # Flask web server
-├── templates/ # Jinja2 HTML templates (index.html)
-├── static/ # CSS, JS, images (served statically)
+├── templates/              # server index.html
+├── static/                 # server CSS (optional)
 │
 └── environment.yml         # Conda environment with RDKit, FreeSASA, sklearn, etc.
 ```
