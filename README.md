@@ -82,17 +82,11 @@ Below is a step-by-step guide to run the full pipeline on **any ligand** (SMILES
 
 ## 🧪 Toy System Example: cyclic penta‑alanine cyclic penta‑alanine
 
-<p align="center">
-  <img src="images/penta_ala.png" alt="Cyclic penta-alanine structure" />
-</p>
-
 SMILES (head‐to‐tail cyclized Ala₅):
 
 ```
 O=C1[C@H](NC([C@H](NC([C@H](NC([C@H](NC([C@H](N1)C)=O)C)=O)C)=O)C)=O)C
 ```
-
-This drives the steps above and yields a predicted MDCK log Papp.
 
 **Example run outputs:**
 
