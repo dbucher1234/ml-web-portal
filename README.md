@@ -2,13 +2,13 @@
 
 Permeability is critical for beyond‐Lipinski compounds (macrocycles, peptides, PROTACs), as their high polarity and size often hinder passive cellular uptake.
 
-This project demonstrates a **fast 3D PSA calculation** + **machine‐learning MDCK permeability model**, culminating in a **chemist‐friendly web app**.
+This project demonstrates a fast 3D PSA calculation + machine‐learning MDCK permeability model, culminating in a chemist‐friendly web app.
 
 ---
 
 ## Why 3D PSA?
 
-3D PSA measures the polar part of a molecule’s solvent-accessible surface. Unlike 2D TPSA, it captures **shielding, intramolecular H-bonds and folding—key drivers of permeability in beyond-Lipinski space**.
+3D PSA measures the polar part of a molecule’s solvent-accessible surface. Unlike 2D TPSA, it captures shielding, intramolecular H-bonds and folding—key drivers of permeability in beyond-Lipinski space.
 
 To address these permeability challenges, several groups have turned to physics-based 3D descriptors like 3D PSA and solvation energy (E-sol). Möbitz et al. generated 3D PSA by first producing conformers with OpenEye Omega and clustering them with RDKit. Each representative conformer then underwent a single-point COSMO QM calculation, after which the polar surface area was obtained by summing the solvent-accessible surface where the atomic charge density exceeded |q| > 0.002 e Å⁻². These 3D PSA values were subsequently used to train a permeability model on 114 proprietary beyond-Rule-of-5 compounds.
 
